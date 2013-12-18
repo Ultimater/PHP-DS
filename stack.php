@@ -10,17 +10,33 @@
             $this->limit = $limit;
         }
 
-        public function push($item){
+        public function insertFirst($item){
             if(count($this->stack) < $this->limit){
-                array_unshift($this->stack,$item);
+                return array_unshift($this->stack,$item);
             } else {
                 throw new RuntimeException("Stack is full");
             }
         }
 
-        public function pop(){
+        public function insertLast($item){
+            if(count($this->stack) < $this->limit){
+                return array_push($this->stack,$item);
+            } else {
+                throw new RuntimeException("Stack is full");
+            }
+        }
+
+        public function removeFirst(){
             if(!empty($this->stack)){
-                array_shift($this->stack);
+                return array_shift($this->stack);
+            } else {
+                throw new RuntimeException("Stack is empty");
+            }
+        }
+
+        public function removeLast(){
+            if(!empty($this->stack)){
+                return array_pop($this->stack);
             } else {
                 throw new RuntimeException("Stack is empty");
             }
