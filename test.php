@@ -5,10 +5,9 @@
     $test = new Stack();
 
     //Let’s add some items to the stack:
-    $test->push("Vinoth");
-    $test->push("Kevin");
-    $test->push("Ryan");
-
+    $test->insertFirst("Vinoth");
+    $test->insertFirst("Kevin");
+    $test->insertFirst("Ryan");
     //Let’s see If our stack is empty
     echo $test->isEmpty();
 
@@ -16,4 +15,6 @@
     echo $test->top();
 
     //To remove some items from the stack:
-    echo $test->pop();
+    $test->removeFirst();
+
+    echo $test->top();
